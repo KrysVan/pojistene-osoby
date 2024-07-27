@@ -8,7 +8,7 @@ class Vypis():
         cur.execute('SELECT * FROM databaze')
         items = cur.fetchall()
 
-        print("Jméno     " + "\tPříjmení   " + "\tVěk   " + "\tTelefonní číslo   ")
+        print("Jméno     " + "\t\tPříjmení   " + "\tVěk   " + "\tTelefonní číslo   ")
         print("---------  " + "\t---------  " + "\t--- " + "\t----------------")
         for item in items:
             print(item[0] + "   \t\t" + item[1] + "\t\t " + item[2] + "\t\t " + item[3])
