@@ -7,10 +7,8 @@ cur = conn.cursor()
 
 
 class Data:
-
     def data_find(self, name, surname):
-        return cur.execute('SELECT * FROM databaze')
-        items = cur.fetchall()
+        items = cur.execute('SELECT * FROM databaze')
         for item in items:
             if item[0] == name and item[1] == surname:
                 print(item[0] + "\t " + item[1] + "\t " + item[2] + "\t " + item[3])
@@ -18,8 +16,6 @@ class Data:
     def data_add(self, name, surname, age, phone):
         cur.execute('INSERT INTO "databaze" VALUES(?, ?, ?, ?)', (name, surname, age, phone))
         conn.commit()
-
-
 
     def data_print(self):
         cur.execute('SELECT * FROM databaze')
@@ -33,16 +29,12 @@ class Data:
         conn.commit()
 
 
-
 class UzivatelskeRozhrani:
-
-
     def vypis(self):
         data = Data()
         data.data_print()
 
     def pridani(self):
-
         name = str(input("Prosím zadejte jméno: "))
         while name == "":
             print("Nezadali jste jméno!")
@@ -59,10 +51,8 @@ class UzivatelskeRozhrani:
         while phone == "":
             print("Nezadali jste telefonní číslo!")
             phone = str(input("Prosím zadejte telefonní číslo: "))
-
         data = Data()
         data.data_add(name, surname, age, phone)
-
 
     def vyhledani(self):
         name = str(input("Prosím zadejte jméno: "))
@@ -75,5 +65,3 @@ class UzivatelskeRozhrani:
             surname = str(input("Prosím zadejte příjmení: "))
         data = Data()
         data.data_find(name, surname)
-
-
